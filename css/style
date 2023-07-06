@@ -1,0 +1,281 @@
+body{
+    background-color: black;
+    overflow: hidden;
+}
+header {
+    background: url("../img/zastavka.jpeg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+}
+.strelki {
+    justify-self: center;
+}
+nav{
+    display: flex;
+    justify-content: center;
+}
+#nav {
+    display: flex;
+    list-style-type: none;
+}
+.nav {
+    padding-right: 20px;
+    margin: 10px;
+    font-family: Courier New, monospace;
+    font-size: 25px;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+#scroll {
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 65vh;
+    margin-left: 47%;
+    animation: down 1.5s infinite;
+    -webkit-animation: down 1.5s infinite;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      width: 15px;
+      height: 15px;
+      border-left: 2px solid rgb(255, 255, 255);
+      border-bottom: 2px solid rgb(255, 255, 255);
+      transform: rotate(-45deg);
+    }
+}  
+.scrolldown {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      width: 13px;
+      height: 13px;
+      border-left: 2px solid rgb(255, 255, 255);
+      border-bottom: 2px solid rgb(255, 255, 255);
+      transform: rotate(-45deg);
+    }
+}  
+.scrollup {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: relative;
+    bottom: 10px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      width: 13px;
+      height: 13px;
+      border-left: 2px solid rgb(255, 255, 255);
+      border-bottom: 2px solid rgb(255, 255, 255);
+      transform: rotate(135deg);
+    }
+} 
+  @keyframes down {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translateY(15px);
+    }
+    40% {
+      transform: translate(0);
+    }
+}
+#plot{
+    height: 100vh;
+}
+.zagl {
+    font-size: 30px;
+    font-family: Courier New, monospace;
+    color: white;
+    padding-top: 30px;
+}
+#pilottxt{
+    width: 600px;
+    font-size: 20px;
+    color: red;
+    padding: 7vh;
+    margin-left: 5vh;
+    font-family: Courier New, monospace;
+    border: 1px solid white;
+}
+#info {
+    display: flex;
+    justify-content: space-around;
+}
+#Arisu, #Karube, #Cheta {
+    color: red;
+    text-shadow:
+      0 0 1px #fff,
+      0 0 2px #fff,
+      0 0 2px #fff,
+      0 0 0 red,
+      0 0 0 red,
+      0 0 0 red;
+    font-size: 20px;
+    text-decoration: underline;
+}
+.photo_plot {
+    margin-left: 20vh;
+    width: 300px;
+    height: 500px;
+}
+#forphoto {
+    width: 60%;
+}
+#characters {
+    height: 100vh;
+    background-color: red
+}
+.grid-init {
+    max-width: 55%;
+    margin: auto; 
+    padding: 10px; 
+}
+.box-init { 
+    border: 2px solid white;
+    padding: 10px; 
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+.grid {
+    display: grid;
+    grid-gap: 35px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: column;
+} 
+@media screen and (max-width:900px){
+    .grid{grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4,1fr);}
+    #plot{height: 100%;}
+    #characters{height: 100%;}
+    body{overflow: auto;}
+    .scrollup{opacity: 0;}
+    .scrolldown{opacity: 0;}
+    header{background: url("../img/zastavka2.jfif");}
+    #pilottxt{padding: 5vh;
+    font-size:12px;
+    width: 400px;
+    margin-left: 0;}
+    #Arisu, #Karube, #Cheta{font-size: 12px;}
+    #info{display: inline-table;}
+    .photo_plot{margin-left: 20vh;
+    width: 250px;
+    height: 350px;}
+}
+.photocharacter {
+    width: 100%;
+    height: 100%;
+}
+.close {
+    float: right;
+    font-size: 35px;
+    color: #000;
+    text-decoration: none;
+}
+.container {
+    width: 100%;
+    display: flex;
+    padding: 0 2px;
+}
+.slide {
+    height: 100%;
+    margin: 1px;
+    cursor: pointer;
+    color: white;
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: all 500ms ease-in-out;
+}
+.slide.active {
+    flex: 10;
+}
+#game {
+    height: 100vh;
+}
+.start {
+    font-size: 1.5rem;
+}
+h1 {
+    line-height: 1.4;
+    font-size: 4rem;
+}
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    transition: margin 0.5s ease-out;
+}
+.time-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+.time-list li {
+    margin: 10px;
+}
+.time-btn {
+    background-color: transparent;
+    border: 2px solid #C0C0C0;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    padding: .5rem 1rem;
+    font-size: 1.5rem;
+}
+.time-btn:hover {
+    border: 2px solid black;
+    color: black;
+}
+.container {
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+}
+.slide {
+    height: 70vh;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: all 500ms ease-in-out;
+}
+.slide.active {
+    flex: 10;
+    text-shadow: 3px 3px 3px black;
+    font-size: 35px;
+}
